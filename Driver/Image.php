@@ -49,11 +49,15 @@ class Image
 
 
                 if ($hasPoint) {
-
                     if ($line % 2 == 0) {
-                        $step = 1;
                         for ($x = 0; $x < $width; $x++) {
-                            echo("x={$x}, y={$y}\n");
+                            // set position x
+                            echo("Position: x={$x}, y={$y}\n");
+
+                            $cmd->resetCommand(Command::SERVO_X, 1);
+                            UDP::sendCommand($cmd);
+                            usleep(310000);
+
                             // check has black color point
                             $check = false;
 
@@ -64,21 +68,15 @@ class Image
                             }
 
                             if ($check) {   // has black color point
-
-                                echo("point:x={$x} y={$y}\n");
-
-                                // set x+1
-                                $cmd->resetCommand(Command::SERVO_X, $step);
-                                UDP::sendCommand($cmd);
-                                sleep($step * 310000);
+                                echo("Point: x={$x}, y={$y}\n");
 
                                 // pen down
                                 if (!$pen_down) {
                                     $cmd->resetCommand(Command::SERVO_Z, 1);
                                     UDP::sendCommand($cmd);
                                     $pen_down = true;
+                                    usleep(310000);
                                 }
-
 
                                 // check next point
                                 $check_next = false;
@@ -95,40 +93,21 @@ class Image
                                     $cmd->resetCommand(Command::SERVO_Z, -1);
                                     UDP::sendCommand($cmd);
                                     $pen_down = false;
-                                }
-
-                                $step = 1;
-                            } else {
-
-                                // flush every 10 step
-                                if ($step == 10) {
-                                    echo("Set position x step:{$step}\n");
-                                    $cmd->resetCommand(Command::SERVO_X, $step);
-                                    UDP::sendCommand($cmd);
-                                    usleep($step * 310000);
-                                    $step = 1;
-                                } else {
-                                    $step++;
+                                    usleep(310000);
                                 }
 
                             }
 
-
-                        }
-
-                        // flush every step
-                        if ($step > 1) {
-                            echo("Set position x step:{$step}\n");
-                            $cmd->resetCommand(Command::SERVO_X, $step);
-                            UDP::sendCommand($cmd);
-                            usleep($step * 310000);
                         }
 
                     } else {
-                        $step = -1;
                         for ($x = $width - 1; $x >= 0; $x--) {
-                            echo("x={$x}, y={$y}\n");
+                            // set position x
+                            echo("Position: x={$x}, y={$y}\n");
 
+                            $cmd->resetCommand(Command::SERVO_X, -1);
+                            UDP::sendCommand($cmd);
+                            usleep(310000);
                             // check has black color point
                             $check = false;
 
@@ -140,12 +119,7 @@ class Image
 
                             if ($check) {   // has black color point
 
-                                echo("point:x={$x} y={$y}\n");
-
-                                // set x-1
-                                $cmd->resetCommand(Command::SERVO_X, $step);
-                                UDP::sendCommand($cmd);
-                                usleep(abs($step) * 310000);
+                                echo("Point: x={$x}, y={$y}\n");
 
                                 // pen down
                                 if (!$pen_down) {
@@ -170,33 +144,9 @@ class Image
                                     $cmd->resetCommand(Command::SERVO_Z, -1);
                                     UDP::sendCommand($cmd);
                                     $pen_down = false;
+                                    usleep(310000);
                                 }
-
-                                $step = -1;
-
-
-                            } else {
-
-                                // flush every 10 step
-                                if ($step == 10) {
-                                    echo("Set position x step:{$step}\n");
-                                    $cmd->resetCommand(Command::SERVO_X, $step);
-                                    UDP::sendCommand($cmd);
-                                    usleep(abs($step) * 310000);
-                                    $step = -1;
-                                } else {
-                                    $step--;
-                                }
-
                             }
-
-                        }
-                        // flush every step
-                        if ($step < -1) {
-                            echo("Set position x step:{$step}\n");
-                            $cmd->resetCommand(Command::SERVO_X, $step);
-                            UDP::sendCommand($cmd);
-                            usleep(abs($step) * 310000);
                         }
 
                     }
@@ -214,7 +164,7 @@ class Image
                         for ($i = 0; $i < 10; $i++) {
                             $cmd->resetCommand(Command::SERVO_X, -3);
                             UDP::sendCommand($cmd);
-                            usleep(1000);
+                            sleep(1);
                         }
                     }
 
@@ -227,6 +177,7 @@ class Image
                 UDP::sendCommand($cmd);
             }
 
+            // if the position is on right when printing complete, reset position to zero
             if ($line % 2 != 0) {
                 for ($x = $width - 1; $x >= 0; $x--) {
                     echo("reset position:x={$x}\n");
@@ -240,7 +191,6 @@ class Image
 
     private function reset()
     {
-
         // pen up
         $cmd = new Command();
         $cmd->resetCommand(Command::SERVO_Z, -1);
@@ -248,10 +198,10 @@ class Image
 
         // reset position x to zero
         $cmd->resetCommand(Command::SERVO_X, -5);
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             echo("Reset position x to zero\n");
             UDP::sendCommand($cmd);
-            usleep(2310000);
+            usleep(1600000);
         }
     }
 }

@@ -20,7 +20,7 @@
       <file leaf-file-name="UDP.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UDP.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
+            <state relative-caret-position="400">
               <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
             </state>
           </provider>
@@ -38,8 +38,8 @@
       <file leaf-file-name="Image.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Image.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2500">
-              <caret line="253" column="26" selection-start-line="253" selection-start-column="26" selection-end-line="253" selection-end-column="26" />
+            <state relative-caret-position="20">
+              <caret line="109" selection-start-line="109" selection-end-line="110" />
             </state>
           </provider>
         </entry>
@@ -74,6 +74,7 @@
       <find>300</find>
       <find>500</find>
       <find>800</find>
+      <find>sleep</find>
     </findStrings>
     <replaceStrings>
       <replace>500</replace>
@@ -117,6 +118,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -128,7 +130,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -176,11 +177,12 @@
       <workItem from="1529787739451" duration="12414000" />
       <workItem from="1529801168202" duration="22113000" />
       <workItem from="1529838447902" duration="26956000" />
+      <workItem from="1529910512342" duration="1498000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62122000" />
+    <option name="totallyTimeSpent" value="63620000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -195,19 +197,19 @@
     <frame x="0" y="23" width="1920" height="1033" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6193103" visible="true" weight="0.18550107" />
       <window_info anchor="bottom" id="TODO" order="6" show_stripe_button="false" weight="0.32921347" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32921347" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.32921347" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29101124" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18539326" />
+      <window_info id="Structure" order="1" sideWeight="0.38068965" side_tool="true" visible="true" weight="0.18550107" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49946696" weight="0.2764045" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6213483" visible="true" weight="0.26066098" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32921347" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Structure" order="1" sideWeight="0.37865168" side_tool="true" visible="true" weight="0.26066098" />
       <window_info id="Favorites" order="2" show_stripe_button="false" sideWeight="0.5011236" side_tool="true" weight="0.2553305" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33258426" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -262,6 +264,44 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/UDP.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Driver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lego.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Command.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4960">
+          <caret line="253" column="26" selection-start-line="253" selection-start-column="26" selection-end-line="253" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/UDP.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -413,15 +453,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UDP.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
+        <state relative-caret-position="400">
           <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Image.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2500">
-          <caret line="253" column="26" selection-start-line="253" selection-start-column="26" selection-end-line="253" selection-end-column="26" />
+        <state relative-caret-position="20">
+          <caret line="109" selection-start-line="109" selection-end-line="110" />
         </state>
       </provider>
     </entry>
