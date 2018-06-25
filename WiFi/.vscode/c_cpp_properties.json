@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/joseph/.arduino15/packages/digistump/hardware/avr/1.6.7/cores/tiny",
+                "/home/joseph/.arduino15/packages/digistump/hardware/avr/1.6.7/cores/pro",
+                "/home/joseph/.arduino15/packages/digistump/hardware/avr/1.6.7/cores/license.txt"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": false,
+                "path": [
+                    "/home/joseph/.arduino15/packages/digistump/hardware/avr/1.6.7/cores/tiny",
+                    "/home/joseph/.arduino15/packages/digistump/hardware/avr/1.6.7/cores/pro",
+                    "/home/joseph/.arduino15/packages/digistump/hardware/avr/1.6.7/cores/license.txt"
+                ]
+            },
+            "defines":["_DEBUG"],
+            "intelliSenseMode": "clang-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

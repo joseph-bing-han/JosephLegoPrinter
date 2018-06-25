@@ -1,0 +1,5 @@
+{
+    "board": "digistump:avr:digispark-tiny",
+    "port": "/dev/ttyUSB0",
+    "sketch": "ServoX.ino"
+}
