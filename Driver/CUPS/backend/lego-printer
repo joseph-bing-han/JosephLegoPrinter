@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Output "device discovery" information on stdout:
+if [ "$#" = "0" ]; then
+    echo 'direct lego-printer "Joseph Lego Printer" "Joseph Lego Printer"'
+    exit 0
+else
+    # Standard args passed by CUPS
+    id=$1
+    user=$2
+    title=$3
+    copies=$4
+    opt=$5
+    file=$6
+    current=`date "+%Y-%m-%d %H:%M:%S"`
+    ip=${DEVICE_URI:14}
+
+    touch /var/log/lego-printer.log
+    chmod 777 /var/log/lego-printer.log
+
+    echo "----------[$current]----------" >> /var/log/lego-printer.log
+    echo "Printing ..." >> /var/log/lego-printer.log
+    echo "uri    = $DEVICE_URI" >> /var/log/lego-printer.log
+    echo "ip     = $ip" >> /var/log/lego-printer.log
+    echo "id     = $id" >> /var/log/lego-printer.log
+    echo "user   = $user" >> /var/log/lego-printer.log
+    echo "title  = $title" >> /var/log/lego-printer.log
+    echo "copies = $copies" >> /var/log/lego-printer.log
+    echo "opt    = $opt" >> /var/log/lego-printer.log
+    echo "file   = $file" >> /var/log/lego-printer.log
+
+
+    # work in a temp directory
+    tmp=$( mktemp -d -t lego-printer-XXXXXXXX )
+    cd $tmp
+
+    # Redirect the piped postscript to a file
+    cat - > print.ps
+
+    # ImageMagik the postscript to png.
+
+    convert print.ps print.png >> /var/log/lego-printer.log
+    convert -resize 320x320 print.png out.png >> /var/log/lego-printer.log
+    convert -monochrome out.png print.png >> /var/log/lego-printer.log
+
+    /opt/JosephLegoPrinter/Driver.php ${ip} ${tmp}/print.png >> /var/log/lego-printer.log
+
+    exit 0
+fi
+

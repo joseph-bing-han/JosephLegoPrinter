@@ -27,7 +27,7 @@ if (PHP_SAPI != 'cli' || $argc != 3) {
         UDP::sendCommand($cmd);
         echo("Send Command: {$index} times.\n");
         $index++;
-        usleep(abs($argv[2])*300000);
+        usleep(abs($argv[2])*50000);
     }
 
 }

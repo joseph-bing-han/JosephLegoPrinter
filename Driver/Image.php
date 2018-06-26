@@ -34,7 +34,7 @@ class Image
 
         $pen_down = false;
         if ($width > 0 && $height > 0) {
-            for ($y = 0; $y < $height; $y += 2) {
+            for ($y = 0; $y < $height; $y++) {
 
                 // check this line has point
                 $hasPoint = false;
@@ -56,7 +56,7 @@ class Image
 
                             $cmd->resetCommand(Command::SERVO_X, 1);
                             UDP::sendCommand($cmd);
-                            usleep(310000);
+                            usleep(50000);
 
                             // check has black color point
                             $check = false;
@@ -75,7 +75,7 @@ class Image
                                     $cmd->resetCommand(Command::SERVO_Z, 1);
                                     UDP::sendCommand($cmd);
                                     $pen_down = true;
-                                    usleep(310000);
+                                    usleep(50000);
                                 }
 
                                 // check next point
@@ -93,7 +93,7 @@ class Image
                                     $cmd->resetCommand(Command::SERVO_Z, -1);
                                     UDP::sendCommand($cmd);
                                     $pen_down = false;
-                                    usleep(310000);
+                                    usleep(50000);
                                 }
 
                             }
@@ -107,7 +107,7 @@ class Image
 
                             $cmd->resetCommand(Command::SERVO_X, -1);
                             UDP::sendCommand($cmd);
-                            usleep(310000);
+                            usleep(50000);
                             // check has black color point
                             $check = false;
 
@@ -125,6 +125,7 @@ class Image
                                 if (!$pen_down) {
                                     $cmd->resetCommand(Command::SERVO_Z, 1);
                                     UDP::sendCommand($cmd);
+                                    usleep(50000);
                                     $pen_down = true;
                                 }
 
@@ -144,7 +145,7 @@ class Image
                                     $cmd->resetCommand(Command::SERVO_Z, -1);
                                     UDP::sendCommand($cmd);
                                     $pen_down = false;
-                                    usleep(310000);
+                                    usleep(50000);
                                 }
                             }
                         }
@@ -164,7 +165,7 @@ class Image
                         for ($i = 0; $i < 10; $i++) {
                             $cmd->resetCommand(Command::SERVO_X, -3);
                             UDP::sendCommand($cmd);
-                            sleep(1);
+                            usleep(200000);
                         }
                     }
 
@@ -175,6 +176,7 @@ class Image
                 // next line
                 $cmd->resetCommand(Command::SERVO_Y, 1);
                 UDP::sendCommand($cmd);
+                usleep(100000);
             }
 
             // if the position is on right when printing complete, reset position to zero
@@ -183,6 +185,7 @@ class Image
                     echo("reset position:x={$x}\n");
                     $cmd->resetCommand(Command::SERVO_X, -1);
                     UDP::sendCommand($cmd);
+                    usleep(50000);
                 }
             }
 
@@ -197,11 +200,11 @@ class Image
         UDP::sendCommand($cmd);
 
         // reset position x to zero
-        $cmd->resetCommand(Command::SERVO_X, -5);
-        for ($i = 0; $i < 10; $i++) {
-            echo("Reset position x to zero\n");
+        $cmd->resetCommand(Command::SERVO_X, -3);
+        for ($i = 0; $i < 100; $i++) {
+            echo("Reset position x to zero: {$i}\n");
             UDP::sendCommand($cmd);
-            usleep(1600000);
+            usleep(150000);
         }
     }
 }

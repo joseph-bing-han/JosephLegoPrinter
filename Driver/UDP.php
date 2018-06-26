@@ -23,7 +23,7 @@ class UDP
         if (!UDP::$socket) {
             die("ERROR: {$errno} - {$errstr}\n");
         }
-        stream_set_timeout(UDP::$socket, 3);
+        stream_set_timeout(UDP::$socket, 1);
         return true;
     }
 

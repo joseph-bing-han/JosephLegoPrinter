@@ -1,0 +1,31 @@
+// Include standard font and media definitions
+#include <font.defs>
+#include <media.defs>
+
+// Specify this is a PostScript printer driver
+DriverType ps
+Filter application/vnd.cups-postscript 0 -
+
+// List the fonts that are supported, in this case all standard fonts
+Font *
+
+// Manufacturer, model name, and version
+Manufacturer "Joseph Lego Printer"
+ModelName "Joseph Lego Printer"
+Version 1.0
+
+// PostScript printer attributes
+Attribute DefaultColorSpace "" Gray
+Attribute LandscapeOrientation "" Minus90
+Attribute LanguageLevel "" "3"
+Attribute Product "" "(Joseph Lego Printer)"
+Attribute PSVersion "" "(3010.000) 550"
+Attribute TTRasterizer "" Type42
+Attribute cupsVersion "" "1.1"
+
+// Supported page sizes
+MediaSize A4
+
+
+// Specify the name of the PPD file we want to generate
+PCFileName "lego-printer.ppd"
