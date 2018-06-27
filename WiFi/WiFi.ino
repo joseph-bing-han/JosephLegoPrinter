@@ -70,14 +70,14 @@ void controllServo()
 
     if (servo == 1)
     {
-      if (step < 150)
+      if (step < 254)
       {
         for (int i = 0; i < step; i++)
         {
           digitalWrite(pin_x, HIGH);
           delay(3);
           digitalWrite(pin_x, LOW);
-          delay(300);
+          delay(150);
         }
         pinMode(pin_check, OUTPUT);
         digitalWrite(pin_check, LOW);
@@ -85,8 +85,7 @@ void controllServo()
       else
       {
         pinMode(pin_check, INPUT);
-        step = step - 256;
-        for (int i = step; i < 0; i++)
+        while (1)
         {
           if (digitalRead(pin_check) == HIGH)
           {
@@ -97,11 +96,10 @@ void controllServo()
             digitalWrite(pin_x, HIGH);
             delay(8);
             digitalWrite(pin_x, LOW);
-            delay(300);
+            delay(50);
           }
         }
       }
-
       delay(100);
     }
     else if (servo == 2)
@@ -109,19 +107,19 @@ void controllServo()
       digitalWrite(pin_y, HIGH);
       delay(3);
       digitalWrite(pin_y, LOW);
-      delay(500);
+      delay(200);
     }
     else if (servo == 3)
     {
       if (step < 150)
       {
-        pen_servo.write(48);
-        delay(400);
+        pen_servo.write(45);
+        delay(250);
       }
       else if (step > 150)
       {
         pen_servo.write(0);
-        delay(400);
+        delay(250);
       }
     }
   }

@@ -19,6 +19,6 @@ void loop()
 
     if (analogIn > 1000 && analogIn < 5000)
     {
-        stepper.step(16); //4步模式下旋转一周用2048 步。
+        stepper.step(14); //4步模式下旋转一周用2048 步。
     }
 }

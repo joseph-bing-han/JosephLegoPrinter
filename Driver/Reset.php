@@ -21,13 +21,22 @@ if (PHP_SAPI != 'cli' || $argc != 3) {
     $cmd = new Command(Command::SERVO_Z, -1);
     UDP::sendCommand($cmd);
     usleep(200);
-    $cmd->resetCommand(Command::SERVO_X, $argv[2]);
-    $index = 1;
-    while (1) {
+    if ($argv[2] == -1) {
+        $cmd->resetCommand(Command::SERVO_X, -1);
         UDP::sendCommand($cmd);
-        echo("Send Command: {$index} times.\n");
-        $index++;
-        usleep(abs($argv[2])*50000);
+        echo("Send Command\n");
+    } else {
+        $cmd->resetCommand(Command::SERVO_X, $argv[2]);
+        $index = 1;
+        while (1) {
+            echo("Send Command: {$index} times.\n");
+            UDP::sendCommand($cmd);
+
+            $index++;
+            usleep(abs($argv[2]) * 10000);
+            echo("finish\n");
+        }
     }
+
 
 }

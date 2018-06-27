@@ -40,10 +40,13 @@ else
     # ImageMagik the postscript to png.
 
     convert print.ps print.png >> /var/log/lego-printer.log
-    convert -resize 320x320 print.png out.png >> /var/log/lego-printer.log
+    convert -resize 600x1000 print.png out.png >> /var/log/lego-printer.log
     convert -monochrome out.png print.png >> /var/log/lego-printer.log
 
     /opt/JosephLegoPrinter/Driver.php ${ip} ${tmp}/print.png >> /var/log/lego-printer.log
+
+    current=`date "+%Y-%m-%d %H:%M:%S"`
+    echo "----------[$current]----------" >> /var/log/lego-printer.log
 
     exit 0
 fi
