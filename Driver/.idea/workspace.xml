@@ -20,17 +20,26 @@
       <file leaf-file-name="install.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CUPS/backend/install.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+            <state relative-caret-position="80">
+              <caret line="4" column="48" lean-forward="true" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lego-printer" pinned="false" current-in-tab="false">
+      <file leaf-file-name="lego-printer" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CUPS/backend/lego-printer">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+            <state relative-caret-position="503">
+              <caret line="40" column="26" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Command.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Command.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -39,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/Driver.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+              <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -53,11 +62,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Image.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Image.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Image.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="199" column="22" selection-start-line="199" selection-start-column="22" selection-end-line="199" selection-end-column="22" />
+            <state relative-caret-position="3040">
+              <caret line="157" column="34" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Driver.php" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/data/Develop/code/Arduino/JosephLegoPrinter/Driver/Driver.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#21#155#0#PHP" expanded="true" />
+                <element signature="e#246#274#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lego-printer.drv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CUPS/ppd/lego-printer.drv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Image.php" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/data/Develop/code/Arduino/JosephLegoPrinter/Driver/Image.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2960">
+              <caret line="153" column="63" selection-start-line="153" selection-start-column="63" selection-end-line="153" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -66,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/Reset.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="600">
-              <caret line="35" column="40" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="40" />
+              <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -85,6 +125,10 @@
       <find>filter</find>
       <find>PSVersion</find>
       <find>ColorDevice</find>
+      <find>/var/log</find>
+      <find>/var/log/cups</find>
+      <find>3</find>
+      <find>PIXELS</find>
     </findStrings>
     <replaceStrings>
       <replace>500</replace>
@@ -93,13 +137,15 @@
       <replace>50000</replace>
       <replace>/var/logs/lego-printer.log</replace>
       <replace>/var/log/lego-printer.log</replace>
+      <replace>/tmp</replace>
+      <replace>PIXELS</replace>
+      <replace>Image::PIXELS</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/Driver.php" />
         <option value="$PROJECT_DIR$/Command.php" />
         <option value="$PROJECT_DIR$/CUPS_backend/JosephLegoPrinter.sh" />
         <option value="$PROJECT_DIR$/CUPS_backend/JosephLegoPrinter" />
@@ -109,9 +155,10 @@
         <option value="$PROJECT_DIR$/CUPS/ppd/install.sh" />
         <option value="$PROJECT_DIR$/CUPS/backend/install.sh" />
         <option value="$PROJECT_DIR$/UDP.php" />
+        <option value="$PROJECT_DIR$/Driver.php" />
         <option value="$PROJECT_DIR$/Reset.php" />
-        <option value="$PROJECT_DIR$/CUPS/backend/lego-printer" />
         <option value="$PROJECT_DIR$/Image.php" />
+        <option value="$PROJECT_DIR$/CUPS/backend/lego-printer" />
       </list>
     </option>
   </component>
@@ -158,13 +205,6 @@
               <item name="CUPS" type="462c0819:PsiDirectoryNode" />
               <item name="ppd" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Driver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Driver" type="462c0819:PsiDirectoryNode" />
-              <item name="CUPS" type="462c0819:PsiDirectoryNode" />
-              <item name="ppd" type="462c0819:PsiDirectoryNode" />
-              <item name="ppd" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -179,12 +219,12 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/CUPS/ppd" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/CUPS/backend" />
+      <recent name="$PROJECT_DIR$/CUPS/ppd" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/CUPS/ppd" />
     </key>
   </component>
@@ -219,7 +259,7 @@
       <option name="PARAMETERS" value="" />
       <module name="" />
     </configuration>
-    <configuration name="test" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/Driver.php" scriptParameters="192.168.1.67 $PROJECT_DIR$/test.jpg">
+    <configuration name="test" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/Driver.php" scriptParameters="192.168.1.69 $PROJECT_DIR$/test.png">
       <CommandLine workingDirectory="$PROJECT_DIR$" />
       <option name="workingDirectory" value="$PROJECT_DIR$" />
     </configuration>
@@ -251,11 +291,17 @@
       <workItem from="1529997285776" duration="19500000" />
       <workItem from="1530083244579" duration="54000" />
       <workItem from="1530085008046" duration="1020000" />
+      <workItem from="1530332582807" duration="18714000" />
+      <workItem from="1530358225328" duration="21000" />
+      <workItem from="1530358307129" duration="3936000" />
+      <workItem from="1530394237620" duration="592000" />
+      <workItem from="1530397356044" duration="16000" />
+      <workItem from="1530399807490" duration="1884000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107265000" />
+    <option name="totallyTimeSpent" value="132428000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -268,16 +314,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1033" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.611236" visible="true" weight="0.15884861" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6955056" visible="true" weight="0.1684435" />
       <window_info anchor="bottom" id="TODO" order="6" show_stripe_button="false" weight="0.32921347" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32921347" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.3438202" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.38539326" />
-      <window_info id="Structure" order="1" sideWeight="0.38876405" side_tool="true" visible="true" weight="0.15884861" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.28089887" />
+      <window_info id="Structure" order="1" sideWeight="0.30449438" side_tool="true" visible="true" weight="0.1684435" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49946696" weight="0.45730338" />
       <window_info id="Favorites" order="2" show_stripe_button="false" sideWeight="0.5011236" side_tool="true" weight="0.2553305" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33258426" />
@@ -336,21 +383,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Reset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="29" column="34" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lego.png" />
-    <entry file="file://$PROJECT_DIR$/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CUPS/ppd/ppd/lego-printer.ppd">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
@@ -545,20 +577,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CUPS_backend/legoprinter" />
     <entry file="file://$PROJECT_DIR$/out.jpg" />
-    <entry file="file://$PROJECT_DIR$/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CUPS/ppd/lego-printer.drv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CUPS/ppd/install.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -573,17 +591,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/data/Develop/code/Arduino/JosephLegoPrinter/Driver/Image.php">
+    <entry file="file://$PROJECT_DIR$/test.jpg" />
+    <entry file="file://$USER_HOME$/data/Develop/code/Arduino/JosephLegoPrinter/Driver/UDP.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="138" column="35" selection-start-line="138" selection-start-column="35" selection-end-line="138" selection-end-column="35" />
+        <state relative-caret-position="320">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Reset.php">
+    <entry file="file://$USER_HOME$/data/Develop/code/Arduino/JosephLegoPrinter/Driver/Image.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="35" column="40" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="40" />
+        <state relative-caret-position="2960">
+          <caret line="153" column="63" selection-start-line="153" selection-start-column="63" selection-end-line="153" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CUPS/ppd/lego-printer.drv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Command.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -594,34 +630,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CUPS/backend/install.sh">
+    <entry file="file://$USER_HOME$/data/Develop/code/Arduino/JosephLegoPrinter/Driver/Driver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+        <state relative-caret-position="80">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#21#155#0#PHP" expanded="true" />
+            <element signature="e#246#274#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CUPS/backend/lego-printer">
+    <entry file="file://$PROJECT_DIR$/Reset.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+        <state relative-caret-position="600">
+          <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Driver.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+          <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Image.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="199" column="22" selection-start-line="199" selection-start-column="22" selection-end-line="199" selection-end-column="22" />
+        <state relative-caret-position="3040">
+          <caret line="157" column="34" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CUPS/backend/install.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="48" lean-forward="true" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CUPS/backend/lego-printer">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="40" column="26" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="26" />
         </state>
       </provider>
     </entry>

@@ -15,9 +15,9 @@ class Image
     private $image;
 
     // sleep time
-    const SLEEP = 160000;
-    const SKIP = 30;
-
+    const SLEEP = 500000;
+    const SKIP = 5;
+    const PIXELS = 2;
     function __construct(string $image_path)
     {
         if (!empty($image_path) && file_exists($image_path)) {
@@ -37,17 +37,20 @@ class Image
         $cmd = new Command();
 
         if ($width > 0 && $height > 0) {
-            for ($y = 0; $y < $height; $y++) {
+            for ($y = 0; $y < $height; $y += Image::PIXELS) {
+
 
                 // check this line has black point
                 $hasPoint = false;
-                for ($x = 0; $x < $width; $x++) {
+                for ($x = 0; $x < $width; $x += Image::PIXELS) {
                     if ($this->checkPixel($x, $y)) {
                         $hasPoint = true;
                         break;
                     }
                 }
 
+                // flag for skip blank pixels to end
+                $skipBlank = false;
 
                 if ($hasPoint) {
                     // skip first 30 pixels
@@ -56,11 +59,9 @@ class Image
                     usleep(Image::SLEEP * Image::SKIP);
 
 
-                    // flag for skip blank pixels to end
-                    $skipBlank = false;
+                    for ($x = 0; $x < $width; $x += Image::PIXELS) {
 
-                    $step = 0;
-                    for ($x = 0; $x < $width; $x++) {
+                        echo("Current position (x={$x}, y={$y}}\n");
                         $check = $this->checkPixel($x, $y);
 
                         if ($check) {
@@ -68,117 +69,53 @@ class Image
                             echo("Set pen down at position (x:{$x}, y:{$y})\n");
                             $cmd->resetCommand(Command::SERVO_Z, 1);
                             UDP::sendCommand($cmd);
-                            usleep(Image::SLEEP);
-                        } else {
-                            // set pen up
-                            echo("Set pen up at position (x:{$x}, y:{$y})\n");
+                            usleep(250);
+
                             $cmd->resetCommand(Command::SERVO_Z, -1);
                             UDP::sendCommand($cmd);
-                            usleep(Image::SLEEP);
+                            usleep(200);
                         }
 
 
                         // check from current pixel to end is blank, CR
-                        if (!$check) {
-                            $isBlank = true;
-                            for ($i = $x; $i < $width; $i++) {
-                                if ($this->checkPixel($i, $y)) {
-                                    $isBlank = false;
-                                    break;
-                                }
-                            }
-
-                            // CR
-                            if ($isBlank) {
-                                echo("From (x:{$x}, y:{$y}) to end all blanks. Skip this line.\n");
-                                $this->reset($x + Image::SKIP);
-                                $skipBlank = true;
+                        $isBlank = true;
+                        for ($i = $x + 1; $i < $width; $i += Image::PIXELS) {
+                            if ($this->checkPixel($i, $y)) {
+                                $isBlank = false;
                                 break;
                             }
                         }
 
-
-                        // check follow pixels
-                        for (; $x < $width; ++$x) {
-                            $step++;
-
-                            // next pixel not same as the first pixel, break
-                            if ($this->checkPixel($x, $y) != $check) {
-
-                                // if step > 1 move position x to x+step
-                                if ($step > 1) {
-                                    if ($check) {
-                                        echo("Draw line from (x:" . ($x - $step + 1) .
-                                            ", y:{$y}) to (x:" . ($x - 1) . ", y:{$y})\n");
-                                        $cmd->resetCommand(Command::SERVO_X, $step - 1);
-                                        UDP::sendCommand($cmd);
-                                        usleep(Image::SLEEP * ($step - 1));
-
-
-                                        // set pen up
-
-                                        $cmd->resetCommand(Command::SERVO_Z, -1);
-                                        UDP::sendCommand($cmd);
-                                        usleep(Image::SLEEP);
-
-                                        // move to next pixel
-                                        echo("Move position to (x:{$x}, y:{$y})\n");
-                                        $cmd->resetCommand(Command::SERVO_X, 1);
-                                        UDP::sendCommand($cmd);
-                                        usleep(Image::SLEEP);
-
-                                    } else {
-                                        echo("Move position from (x:" . ($x - $step + 1) .
-                                            ", y:{$y}) to (x:" . ($x - 1) . ", y:{$y})\n");
-                                        $cmd->resetCommand(Command::SERVO_X, $step);
-                                        UDP::sendCommand($cmd);
-                                        usleep(Image::SLEEP * ($step));
-                                    }
-
-
-                                }
-
-
-                                $x--;
-                                $step = 0;
-                                // next pixel not same as the first pixel, break
-                                break;
-                            }
-
-                            // flush every 50 pixel
-                            if ($step == 50) {
-                                // if step > 0 move position x to x+step
-                                if ($check) {
-                                    echo("Draw line from (x:" . ($x - $step + 2) . ", y:{$y}) to (x:{$x}, y:{$y})\n");
-                                } else {
-                                    echo("Move position from (x:" . ($x - $step + 2) . ", y:{$y}) to (x:{$x}, y:{$y})\n");
-                                }
-                                $cmd->resetCommand(Command::SERVO_X, $step - 1);
-                                UDP::sendCommand($cmd);
-                                usleep(Image::SLEEP * (($step - 1)));
-                                $step = 0;
-                                break;
-                            }
-
+                        // CR
+                        if ($isBlank) {
+                            echo("From (x:{" . ($x + 1) . "}, y:{$y}) to end all blanks. Skip this line.\n");
+                            $this->reset($x + Image::SKIP * Image::PIXELS);
+                            $skipBlank = true;
+                            break;
                         }
 
+                        $cmd->resetCommand(Command::SERVO_X, 1);
+                        UDP::sendCommand($cmd);
+                        usleep(Image::SLEEP);
+
                     }
 
-                    // CR
-                    if (!$skipBlank) {
-                        $this->reset($width + Image::SKIP);
-                    }
                 }
 
-                echo("Change to next line.\n");
+                // CR
+                if ($hasPoint && !$skipBlank) {
+                    $this->reset($width + Image::SKIP * Image::PIXELS);
+                }
+
+                echo("Current Y={$y},\nChange to next line.\n");
                 // LF
                 $cmd->resetCommand(Command::SERVO_Y, 1);
                 UDP::sendCommand($cmd);
-                usleep(10000);
+                sleep(1);
             }
 
             // CR
-            $this->reset(width + Image::SKIP);
+            $this->reset(width + Image::SKIP * Image::PIXELS);
 
         }
     }
@@ -195,9 +132,9 @@ class Image
         $cmd->resetCommand(Command::SERVO_X, -1);
         UDP::sendCommand($cmd);
         if ($width == 0) {
-            sleep(40);
+            sleep(35);
         } else {
-            usleep(58000 * $width);
+            usleep(110000 * $width);
         }
 
     }
@@ -211,12 +148,19 @@ class Image
      */
     private function checkPixel(int $x, int $y): bool
     {
-        $result = false;
-        $pixel = $this->image->getImagePixelColor($x, $y);
-        $colors = $pixel->getColor();
-        if ($colors['r'] < 5 && $colors['g'] < 5 && $colors['b'] < 5) {
-            $result = true;
+        $count = 0;
+        for ($m = 0; $m < Image::PIXELS; $m++) {
+            for ($n = 0; $n < Image::PIXELS; $n++) {
+                $pixel = $this->image->getImagePixelColor($x + $n, $y + $m);
+                $colors = $pixel->getColor();
+                if ($colors['r'] < 5 && $colors['g'] < 5 && $colors['b'] < 5) {
+                    $count++;
+                    if ($count > 3) {
+                        return true;
+                    }
+                }
+            }
         }
-        return $result;
+        return false;
     }
 }

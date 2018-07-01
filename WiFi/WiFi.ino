@@ -113,7 +113,7 @@ void controllServo()
     {
       if (step < 150)
       {
-        pen_servo.write(45);
+        pen_servo.write(25);
         delay(250);
       }
       else if (step > 150)

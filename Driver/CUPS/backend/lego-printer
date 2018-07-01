@@ -15,19 +15,17 @@ else
     current=`date "+%Y-%m-%d %H:%M:%S"`
     ip=${DEVICE_URI:14}
 
-    touch /var/log/lego-printer.log
-    chmod 777 /var/log/lego-printer.log
 
-    echo "----------[$current]----------" >> /var/log/lego-printer.log
-    echo "Printing ..." >> /var/log/lego-printer.log
-    echo "uri    = $DEVICE_URI" >> /var/log/lego-printer.log
-    echo "ip     = $ip" >> /var/log/lego-printer.log
-    echo "id     = $id" >> /var/log/lego-printer.log
-    echo "user   = $user" >> /var/log/lego-printer.log
-    echo "title  = $title" >> /var/log/lego-printer.log
-    echo "copies = $copies" >> /var/log/lego-printer.log
-    echo "opt    = $opt" >> /var/log/lego-printer.log
-    echo "file   = $file" >> /var/log/lego-printer.log
+    echo "----------[$current]----------" >> /tmp/lego-printer.log
+    echo "Printing ..." >> /tmp/lego-printer.log
+    echo "uri    = $DEVICE_URI" >> /tmp/lego-printer.log
+    echo "ip     = $ip" >> /tmp/lego-printer.log
+    echo "id     = $id" >> /tmp/lego-printer.log
+    echo "user   = $user" >> /tmp/lego-printer.log
+    echo "title  = $title" >> /tmp/lego-printer.log
+    echo "copies = $copies" >> /tmp/lego-printer.log
+    echo "opt    = $opt" >> /tmp/lego-printer.log
+    echo "file   = $file" >> /tmp/lego-printer.log
 
 
     # work in a temp directory
@@ -39,14 +37,15 @@ else
 
     # ImageMagik the postscript to png.
 
-    convert print.ps print.png >> /var/log/lego-printer.log
-    convert -resize 600x1000 print.png out.png >> /var/log/lego-printer.log
-    convert -monochrome out.png print.png >> /var/log/lego-printer.log
+    convert print.ps print.png >> /tmp/lego-printer.log
+    convert -resize 250x340 print.png out.png >> /tmp/lego-printer.log
+    convert out.png -background white -alpha remove out1.png  >> /tmp/lego-printer.log
+    convert -monochrome out1.png print.png >> /tmp/lego-printer.log
 
-    /opt/JosephLegoPrinter/Driver.php ${ip} ${tmp}/print.png >> /var/log/lego-printer.log
+    /opt/JosephLegoPrinter/Driver.php ${ip} ${tmp}/print.png >> /tmp/lego-printer.log
 
     current=`date "+%Y-%m-%d %H:%M:%S"`
-    echo "----------[$current]----------" >> /var/log/lego-printer.log
+    echo "----------[$current]----------" >> /tmp/lego-printer.log
 
     exit 0
 fi

@@ -33,7 +33,7 @@ if (PHP_SAPI != 'cli' || $argc != 3) {
             UDP::sendCommand($cmd);
 
             $index++;
-            usleep(abs($argv[2]) * 10000);
+            usleep(abs($argv[2]) * 500000);
             echo("finish\n");
         }
     }

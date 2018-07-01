@@ -7,10 +7,12 @@
  * Blog: http://blog.joseph-han.net
  */
 
-namespace joseph\lego\printer;
-
+set_time_limit(0);
+ini_set('memory_limit', '256M');
 require_once 'vendor/autoload.php';
 
+use joseph\lego\printer\UDP;
+use joseph\lego\printer\Image;
 
 if (PHP_SAPI != 'cli' || $argc != 3) {
     echo("Please use this format command:\nDriver.php [printer ip] [image file path]\n");
