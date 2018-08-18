@@ -13,12 +13,42 @@ class UDP
 {
     private static $socket = null;
 
-
-    public static function connect2Server($host, $port = 9000): bool
+    private static function getHost($ip = '192.168.1')
     {
-        if (empty($host) || empty($port)) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_NOSIGNAL, 1);    //注意，毫秒超时一定要设置这个
+        curl_setopt($ch, CURLOPT_TIMEOUT_MS, 200);
+        for ($i = 2; $i < 255; $i++) {
+            $url = "http://{$ip}.{$i}/";
+            curl_setopt($ch, CURLOPT_URL, $url);
+            $body = curl_exec($ch);
+            $curl_errno = curl_errno($ch);
+            if ($curl_errno == 0) {
+                if (preg_match('/<html><body>IP:(\d+\.\d+\.\d+\.\d+)<\/body><\/html>/i', $body, $match)) {
+                    curl_close($ch);
+                    return $match[1];
+                }
+            }
+        }
+        curl_close($ch);
+        return null;
+    }
+
+    public static function connect2Server($ip, $port = 9000): bool
+    {
+        if (empty($ip) || empty($ip)) {
             return false;
         }
+
+        $host = UDP::getHost($ip);
+
+        if ($host === null) {
+            return false;
+        }
+
+        echo("Get Lego Printer IP: {$host}\n");
+
         UDP::$socket = stream_socket_client("udp://{$host}:{$port}", $errno, $errstr);
         if (!UDP::$socket) {
             die("ERROR: {$errno} - {$errstr}\n");

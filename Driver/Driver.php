@@ -15,13 +15,17 @@ use joseph\lego\printer\UDP;
 use joseph\lego\printer\Image;
 
 if (PHP_SAPI != 'cli' || $argc != 3) {
-    echo("Please use this format command:\nDriver.php [printer ip] [image file path]\n");
+    echo("Please use this format command:\nDriver.php [local ip (e.g.: 192.168.1)] [image file path]\n");
     return 111;
 } else {
-    $printerIP = $argv[1];
+    $ip = $argv[1];
     $imagePath = $argv[2];
-    UDP::connect2Server($printerIP);
-    $image = new Image($imagePath);
-    $image->print();
+    if (UDP::connect2Server($ip)) {
+        $image = new Image($imagePath);
+        $image->print();
+    } else {
+        echo("Cannot find Lego Printer\n");
+    }
+
     return 0;
 }

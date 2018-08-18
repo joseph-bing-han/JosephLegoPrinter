@@ -22,7 +22,7 @@ const byte pin_check = 2;
 
 void handleRoot()
 {
-  http_server.send(200, "text/html", "<html><body>IP:" + WiFi.localIP().toString() + "</body></html>0.");
+  http_server.send(200, "text/html", "<html><body>IP:" + WiFi.localIP().toString() + "</body></html>");
 }
 
 void setup()
